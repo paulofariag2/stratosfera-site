@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trabalhe Conosco - Stratosfera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">Stratosfera</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="trabalhe.html" class="active">Trabalhe Conosco</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="work-with-us container">
+  <h2>Junte-se à nossa equipe</h2>
+  <p>Estamos sempre em busca de talentos apaixonados por tecnologia e inovação. Se você quer crescer conosco, envie seu currículo.</p>
+  
+  <form action="#" method="post" onsubmit="return validarCurriculo()">
+    <label for="nome">Nome Completo</label>
+    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" placeholder="email@exemplo.com" required />
+
+    <label for="area">Área de Interesse</label>
+    <select id="area" name="area" required>
+      <option value="">Selecione uma área</option>
+      <option value="desenvolvimento-web">Desenvolvimento Web</option>
+      <option value="desenvolvimento-mobile">Desenvolvimento Mobile</option>
+      <option value="marketing-digital">Marketing Digital</option>
+      <option value="cloud-infraestrutura">Cloud e Infraestrutura</option>
+      <option value="design-grafico">Design Gráfico</option>
+      <option value="consultoria-analise">Consultoria e Análise</option>
+    </select>
+
+    <label for="curriculo">Anexe seu Currículo (PDF)</label>
+    <input type="file" id="curriculo" name="curriculo" accept=".pdf" required />
+
+    <button type="submit">Enviar Currículo</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Stratosfera - Todos os direitos reservados | Desenvolvido por Stratosfera</p>
+</footer>
+
+<script>
+  function validarCurriculo() {
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const area = document.getElementById('area').value;
+    const curriculo = document.getElementById('curriculo').value;
+
+    if (!nome || !email || !area || !curriculo) {
+      alert('Por favor, preencha todos os campos e anexe seu currículo.');
+      return false;
+    }
+    const regexEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    if (!regexEmail.test(email)) {
+      alert('Por favor, insira um e-mail válido.');
+      return false;
+    }
+    return true;
+  }
+</script>
+
+</body>
+</html>
